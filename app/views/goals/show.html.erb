@@ -1,0 +1,6 @@
+<%= @goal.description %>
+<%= @goal.status %>
+<%= @goal.shared_status %>
+
+<%= link_to "Update", edit_goal_url(@goal), method: :get %>
+<%= link_to "Delete", goal_url(@goal), method: :delete %>

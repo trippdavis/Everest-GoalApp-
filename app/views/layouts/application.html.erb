@@ -9,6 +9,11 @@
 <body>
   <%= render 'shared/header' %>
 
+
+    <% flash.each do |err| %>
+      <%= err %>
+    <% end %>
+
 <%= yield %>
 
 </body>
