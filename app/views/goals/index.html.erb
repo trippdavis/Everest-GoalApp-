@@ -1,0 +1,10 @@
+<h1>All Index</h1>
+<% @users.each do |user| %>
+  <%= user.username %>
+  <% user.goals.each do |goal| %>
+    <% if show_goal(goal) %>
+      <%= goal.description %>
+      <%= goal.status %>
+    <% end %>
+  <% end %>
+<% end %>

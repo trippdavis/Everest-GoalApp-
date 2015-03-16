@@ -1,1 +1,7 @@
 <%= @user.username %>
+<% @user.goals.each do |goal| %>
+  <% if show_goal(goal) %>
+    <%= goal.description %>
+    <%= goal.status %>
+  <% end %>
+<% end %>
