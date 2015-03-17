@@ -2,8 +2,8 @@ require 'spec_helper'
 require 'rails_helper'
 
 feature "Comments" do
-  let(:user1) { FactoryGirl.create(:user, username: 'David', session_token: "1") }
-  let(:user2) { FactoryGirl.create(:user, username: 'Jeff', session_token: "2") }
+  let(:user1) { FactoryGirl.create(:user, username: 'David') }
+  let(:user2) { FactoryGirl.create(:user, username: 'Jeff', password: "MyPassword") }
   let(:goal) { FactoryGirl.create(:goal, user: user1) }
 
   before(:each) do
@@ -44,6 +44,6 @@ end
 def login(user)
   visit new_session_url
   fill_in 'username', :with => user.username
-  fill_in 'password', :with => 'password1'
+  fill_in 'password', :with => 'MyPassword'
   click_on "Sign In"
 end
