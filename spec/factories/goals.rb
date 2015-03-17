@@ -14,9 +14,9 @@
 FactoryGirl.define do
   factory :goal do
     user_id 1
-description "MyText"
-status "MyString"
-shared_status "MyString"
+description "example goal"
+status "incomplete"
+shared_status "public"
   end
 
 end

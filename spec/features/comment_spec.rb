@@ -2,8 +2,8 @@ require 'spec_helper'
 require 'rails_helper'
 
 feature "Comments" do
-  let(:user1) { FactoryGirl.create(:user, username: 'David') }
-  let(:user2) { FactoryGirl.create(:user, username: 'Jeff') }
+  let(:user1) { FactoryGirl.create(:user, username: 'David', session_token: "1") }
+  let(:user2) { FactoryGirl.create(:user, username: 'Jeff', session_token: "2") }
   let(:goal) { FactoryGirl.create(:goal, user: user1) }
 
   before(:each) do

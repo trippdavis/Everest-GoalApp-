@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   def create
     @comment = find_commentable.comments.new(comment_params)
+    @comment.author_id = current_user.id
     flash[:error] = @comment.errors.full_messages unless @comment.save
     redirect_to @comment.commentable
   end
@@ -17,6 +18,6 @@ class CommentsController < ApplicationController
   private
 
     def comment_params
-      params(:comment).require(:body)
+      params.require(:comment).permit(:body)
     end
 end

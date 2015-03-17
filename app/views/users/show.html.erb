@@ -5,3 +5,20 @@
     <%= goal.status %>
   <% end %>
 <% end %>
+
+<% @user.comments.each do |comment| %>
+  <%= comment.body %>
+<% end %>
+
+<h2>Add Comment</h2>
+
+<form action="<%= user_comments_url(@user) %>" method="post">
+<input type="hidden"
+  name="authenticity_token"
+  value=" <%=form_authenticity_token %>">
+
+<textarea name="comment[body]" id="body"></textarea>
+
+<input type="submit" name="Add Comment" value="Add Comment">
+
+</form>
