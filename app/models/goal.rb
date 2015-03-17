@@ -20,5 +20,7 @@ class Goal < ActiveRecord::Base
   validates :status, presence: true, inclusion: { in: STATUS }
   validates :shared_status, presence: true, inclusion: { in: SHARED_STATUS }
 
+
+  has_many :comments, as: :commentable
   belongs_to :user
 end
