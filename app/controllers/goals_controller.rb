@@ -1,7 +1,5 @@
 class GoalsController < ApplicationController
 
-  helper_method :show_goal
-
   def new
     @goal = Goal.new
   end
@@ -45,11 +43,6 @@ class GoalsController < ApplicationController
     redirect_to user_url(user)
   end
 
-  def show_goal(goal)
-    return true if goal.user_id == current_user.id
-    return true if goal.shared_status == "public"
-    false
-  end
 
   private
 

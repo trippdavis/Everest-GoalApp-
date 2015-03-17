@@ -22,6 +22,25 @@ class User < ActiveRecord::Base
 
   has_many :goals
 
+  has_many(
+    :comments,
+    class_name: :UserComment,
+    foreign_key: :user_id
+  )
+
+  has_many(
+    :user_comments_authored,
+    class_name: :UserComment,
+    foreign_key: :author_id
+  )
+
+  has_many(
+    :goal_comments_authored,
+    class_name: :GoalComment,
+    foreign_key: :author_id
+  )
+
+
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     return nil if user.nil?

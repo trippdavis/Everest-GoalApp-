@@ -21,4 +21,10 @@ class Goal < ActiveRecord::Base
   validates :shared_status, presence: true, inclusion: { in: SHARED_STATUS }
 
   belongs_to :user
+
+  has_many(
+    :comments,
+    class_name: :GoalComment,
+    primary_key: :id,
+    foreign_key: :goal_id)
 end
